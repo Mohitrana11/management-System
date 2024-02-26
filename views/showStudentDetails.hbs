@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+    <link rel="stylesheet" href="/Styles/showStudentDetails.css">
+</head>
+<body>
+    <h2>Student List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Father Name</th>
+                <th>Mother Name</th>
+                <th>DOB</th>
+                <th>Branch</th>
+                <th>Year</th>
+                <th>Gender</th>
+                <th>Category</th>
+                <th>Mobile No.</th>
+                <th>Aadhar Number</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each items}}
+            <tr>
+                <td>{{this.studentName}}</td>
+                <td>{{this.fatherName}}</td>
+                <td>{{this.motherName}}</td>
+                <td>{{this.dob}}</td>
+                <td>{{this.branch}}</td>
+                <td>{{this.year}}</td>
+                <td>{{this.gender}}</td>
+                <td>{{this.category}}</td>
+                <td>{{this.mobileNumber}}</td>
+                <td>{{this.adharNumber}}</td>
+                <td>{{this.email}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>

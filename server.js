@@ -2,12 +2,14 @@ const express = require('express');
 const  bcrypt = require('bcrypt');
 
 // require('dotenv').config();
-const port = process.env.PORT ||4500;
+const port = process.env.PORT || 3000;
 const path=require('path');
 
 // Data Base!--------------------------------------------------
 const signDB =require('./DataBases/LoginDB');  // Login and SignUp DataBase!
+const studentDB = require('./DataBases/StudentDetails');
 const { TopologyDescription } = require('mongodb');
+
 
 const app = express();
 
@@ -25,14 +27,15 @@ app.use('/images',express.static('images'));
 app.set('view engine','hbs');
 
 //  CODE: 
-app.get('/mr',(req,resp)=>{
-    resp.render('StudentDetail');
-})
 
 app.get('/',(req,resp)=>{
     resp.send('<h1>HOme page!</h1>');
 })
 
+
+app.get('/StudentDetail',(req,resp)=>{
+    resp.render('StudentDetail');
+})
 
 app.get('/SignIn',(req,resp)=>{
     resp.render('SignIn');
@@ -41,6 +44,7 @@ app.get('/SignIn',(req,resp)=>{
 app.get('/LogIn',(req,resp)=>{
     resp.render('LogIn');
 })
+
 
 // SignUp Post request!-----------------------
 app.post('/SingData',async (req,resp)=>{
@@ -79,6 +83,39 @@ app.post('/login',async (req,resp)=>{
         resp.send('Wrong Details');
     }
 })
+
+
+
+// Student Detail Form: 
+
+app.post('/StudentDetails', async (req,resp)=>{
+    const data = {
+        studentName:req.body.studentName,
+        fatherName:req.body.fatherName,
+        motherName:req.body.motherName,
+        dob:req.body.dob,
+        mobileNumber:req.body.mobileNumber,
+        adharNumber:req.body.adharNumber,
+        email:req.body.email,
+        branch:req.body.branch,
+        year:req.body.year,
+        gender:req.body.gender,
+        category:req.body.category,
+    }
+    await studentDB.insertMany([data]);
+    resp.send('<h1>print All Data!</h1>');
+});
+
+
+app.get('/showStudentDetails', async (req, res) => {
+    const items = await studentDB.find({});
+    res.render('showStudentDetails', { items });
+});
+
+app.get('/choose',(req,reps)=>{
+    reps.render('choose');
+});
+
 
 
 app.use('/',(req,resp)=>{

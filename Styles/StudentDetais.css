@@ -12,8 +12,7 @@ body{
     height: 100%;
     padding: 0px 5%;
     font-family: Poppins;
-    /* background-color: rgb(204, 249, 204); */
-    background: linear-gradient(rgba(250, 213, 143, 0.822),white,rgba(129, 238, 129, 0.867));
+    background-color: #d4eae355;
 }
 
 .main {
@@ -99,7 +98,7 @@ button {
     align-items: center;
 }
 #btn-submit{
-    margin-top: 40px;
+    margin: 20px 0px;
     cursor: pointer;
     font-size: 14px;
     text-transform: uppercase;
@@ -116,8 +115,25 @@ button {
     color: brown;
 }
 
-@media (max-width: 900px){
-    .register label {
-        display: none;
+@media (max-width:800px){
+    .main{
+        width: 75vw;
+    }
+    #DOB{
+        width: 30vw;
+
+    }
+}
+@media (max-width:600px){
+    .register>h1{
+        font-size: 20px;
+    }
+}
+@media (max-width:430px){
+    .main{
+        width: 90vw;
+    }
+    #DOB{
+        width: 60vw;
     }
 }

@@ -12,24 +12,23 @@
     <div class="main">
         <div class="register">
             <h2>Registration Form</h2>
-            <form id="register" method="post">
+            <form id="register" action="/StudentDetails" method="post">
                 <label>Student Name :</label>   
-                <input type="text" id="name" placeholder="Applicant Name">
+                <input type="text" id="name" placeholder="Applicant Name" name="studentName">
           
                 <label>Father Name :</label>
-                <input type="text" id="name" placeholder="Father Name">
+                <input type="text" id="name" placeholder="Father Name" name="fatherName">
 
                 <label>Mother Name :</label>
-                <input type="text" id="name" placeholder="Mother Name">
-                <label for="dob">
+                <input type="text" id="name" placeholder="Mother Name" name="motherName">
+                <label for="dob" >
                     Date of Birth:
-                    <input type="date" id="DOB">
+                    <input type="date" id="DOB" name="dob">
                 </label>
-                    <p class="sms"></p>
                 </label><br>
                 <label for="branch">
                     Branch:
-                    <select class="barnch">
+                    <select class="barnch" name="branch">
                         <option value="Information technology">Information technology</option>
                         <option value="Computer Science and Engineering">Computer Science and Engineering</option>
                         <option value="Auto Mobile">Auto Mobile</option>
@@ -41,7 +40,7 @@
                 </label>
                 <label for="year">
                     Year
-                    <select class="year">
+                    <select class="year" name="year">
                         <option value="1st Year">1st Year</option>
                         <option value="2nd Year">2nd Year</option>
                         <option value="3rd Year">3rd Year</option>
@@ -49,7 +48,7 @@
                 </label>
                 <label for="gender">
                     Gender:
-                    <select class="gender">
+                    <select class="gender" name="gender">
                         <option value="Gender">Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -58,7 +57,7 @@
                 </label><br>
                 <label for="Category:">
                     Category :
-                    <select class="category">
+                    <select class="category" name="category">
                         <option value="category">Category</option>
                         <option value="category">General(UR)</option>
                         <option value="category">Economically Weaker Section(EWS)</option>
@@ -67,114 +66,24 @@
                         <option value="category">Schedule Caste(SC)</option>
                     </select>
                 </label>
-
-                <label for="Sub Category:">
-                    Sub Category :
-                    <select class="subcategory">
-                        <option value="subcategory">Sub Category</option>
-                        <option value="subcategory">D.F.F</option>
-                        <option value="subcategory">Miltary Person(MP)/Dependent</option>
-                        <option value="subcategory">Physical handicap(PH)</option>
-                        <option value="subcategory">None</option>
-                    </select>
-                </label>
-
-                <label for="CerficatePass:">
-                    For Claiming Reservation Facility For Cerificate Holder in NCC, NCC CERTIFICATE PASSED:
-                    <select class="">
-                        <option value="CerficatePass">Select One</option>
-                        <option value="CerficatePass">A</option>
-                        <option value="CerficatePass">B</option>
-                        <option value="CerficatePass">C</option>
-                        <option value="CerficatePass">None</option>
-                    </select>
-                </label>
-
                 <label for="phone_number">
                     Mobile Number:
-                    <input type="text" id="phone_number" placeholder="Mobile Number">
+                    <input type="text" id="phone_number" placeholder="Mobile Number" name="mobileNumber">
                 </label>
                 <label for="adhaar_no">
                     Aadhar Number:
-                    <input type="text" placeholder="Aadhar Number:">
+                    <input type="text" placeholder="Aadhar Number:" name="adharNumber">
                 </label>
 
-            </form>
-
-            <h2>Address Details</h2>
-
-            <label for="address">
-                <form action="address">
-                    <input type="text" class="address" placeholder="Enter the Permanent Address">
-                </form>
-            </label>
-
-            <label for="state">
-                State:
-                <select name="state" id="">
-                    <option value="state">Select State</option>
-                    <option value="state">Andhra Pradesh</option>
-                    <option value="state">Arunachal Pradesh </option>
-                    <option value="state">Assam</option>
-                    <option value="state">Bihar</option>
-                    <option value="state">Assam</option>
-                    <option value="state">Chhattisgarh</option>
-                    <option value="state">Goa</option>
-                    <option value="state">Gujarat</option>
-                    <option value="state">Haryana</option>
-                    <option value="state">Himachal Pradesh/option>
-                    <option value="state">Jharkhand</option>
-                    <option value="state">Karnataka</option>
-                    <option value="state">Kerala</option>
-                    <option value="state">Madhya Pradesh</option>
-                    <option value="state">Maharashtra</option>
-                    <option value="state">Manipur</option>
-                    <option value="state">Meghalaya</option>
-                    <option value="state">Mizoram</option>
-                    <option value="state">Nagaland</option>
-                    <option value="state">Odisha</option>
-                    <option value="state">Punjab</option>
-                    <option value="state">Sikkim</option>
-                    <option value="state">Rajasthan</option>
-                    <option value="state">Tamil Nadu</option>
-                    <option value="state">Tripura</option>
-                    <option value="state">Uttarakhand</option>
-                    <option value="state">Uttar Pradesh</option>
-                    <option value="state">West Bengal</option>
-                    <option value="state">Other</option>
-                </select>
-            </label>
-
-            <label for="address">
-                District:
-                    <select class="qualification_ex_center">
-                        <option value="qualification_ex_center">-Select Center-</option>
-                        <option value="qualification_ex_center">Haridear</option>
-                        <option value="qualification_ex_center">Dehradun</option>
-                        <option value="qualification_ex_center">New Tehri</option>
-                        <option value="qualification_ex_center">Uttarkashi</option>
-                        <option value="qualification_ex_center">Srinagar Garhwal</option>
-                        <option value="qualification_ex_center">Chamoli</option>
-                        <option value="qualification_ex_center">Rudraprayag</option>
-                        <option value="qualification_ex_center">U.S. nagar</option>
-                        <option value="qualification_ex_center">Naintal</option>
-                        <option value="qualification_ex_center">Almora</option>
-                        <option value="qualification_ex_center">Pithorgrah</option>
-                        <option value="qualification_ex_center">Bageshwar</option>
-                        <option value="qualification_ex_center">Camphawat</option>
-            </label>
-
-            <label for="address">
-                Pin Code:
-                <input type="text" class="address" placeholder="Enter Pin Code" />
-            </label>
             <label for="emailaddress">
                 Email Address:  
-                <input type="text" class="emailaddress" placeholder="Enter a valid Email ID ">
+                <input type="text" class="emailaddress" placeholder="Enter a valid Email ID " name="email">
             </label>
-        </div>
-        <div class="container">
-            <input type="submit" value="submit" id="btn-submit" >
+            <div class="container">
+                <input type="submit" value="submit" id="btn-submit" >
+            </div>
+            </form>
+
         </div>
 
 
