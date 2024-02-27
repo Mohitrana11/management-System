@@ -66,6 +66,7 @@ app.post('/SingData',async (req,resp)=>{
 })
 
 
+
 // Login Post requires!--------------------------
 app.post('/login',async (req,resp)=>{
     try{
@@ -86,10 +87,12 @@ app.post('/login',async (req,resp)=>{
 
 
 
+
 // Student Detail Form: 
 
 app.post('/StudentDetails', async (req,resp)=>{
     const data = {
+        rollNumber:req.body.rollNumber,
         studentName:req.body.studentName,
         fatherName:req.body.fatherName,
         motherName:req.body.motherName,
@@ -107,15 +110,27 @@ app.post('/StudentDetails', async (req,resp)=>{
 });
 
 
-app.get('/showStudentDetails', async (req, res) => {
+app.get('/showStudentDetails', async (req, resp) => {
     const items = await studentDB.find({});
-    res.render('showStudentDetails', { items });
+    resp.render('showStudentDetails', { items });
 });
 
-app.get('/choose',(req,reps)=>{
-    reps.render('choose');
+app.get('/ProfileSearch',(req,reps)=>{
+    reps.render('ProfileSearch');
 });
 
+
+app.post('/Profiles',async (req,resp)=>{
+    // const items = await studentDB.find({branch:req.body.branch},{year:req.body.year},{$or:[{gender:req.body.gender},{category:req.body.category}]});
+    const items = await studentDB.find({$and:[ {branch:req.body.branch},{year:req.body.year}]});
+    // {$or:[{gender:req.body.gender},{category:req.body.category}]
+    
+    resp.render('showStudentDetails', { items });
+})
+
+// studentDB.find({branch:req.body.branch},{year:req.body.year},{$or:[{gender:req.body.gender},{category:req.body.category}]});
+
+// studentDB.find({branch:req.body.branch},{year:req.body.year},{$or:[{gender:req.body.gender},{category:req.body.category}]});
 
 
 app.use('/',(req,resp)=>{

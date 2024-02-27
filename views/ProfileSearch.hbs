@@ -4,30 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Styles/StudentDetais.css">
+    <link rel="stylesheet" href="/Styles/requireDetails.css">
     <title>Registration Form</title>
 </head>
 
 <body>
+    <img src="/images/collegeIllustrations/college1.avif" alt="" id="img1">
     <div class="main">
         <div class="register">
-            <h2>Registration Form</h2>
-            <form id="register" action="/StudentDetails" method="post">
-                <label>Student Name :</label>   
-                <input type="text" id="name" placeholder="Applicant Name" name="studentName">
-          
-                <label>Father Name :</label>
-                <input type="text" id="name" placeholder="Father Name" name="fatherName">
-
-                <label>Mother Name :</label>
-                <input type="text" id="name" placeholder="Mother Name" name="motherName">
-                  <label>Roll Number :</label>
-                <input type="text" id="name" placeholder="Mother Name" name="rollNumber">
-                <label for="dob" >
-                    Date of Birth:
-                    <input type="date" id="DOB" name="dob">
-                </label>
-                </label><br>
+            <h2>Data Searching</h2>
+            <form id="register" action="/Profiles" method="post">
                 <label for="branch">
                     Branch:
                     <select class="barnch" name="branch">
@@ -50,14 +36,14 @@
                 </label>
                 <label for="gender">
                     Gender:
-                    <select class="gender" name="gender">
+                    <select class="gender"  name="gender">
                         <option value="Gender">Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Transgender">Transgender</option>
                     </select>
                 </label><br>
-                <label for="Category:">
+                <label for="Category:" id="category" >
                     Category :
                     <select class="category" name="category">
                         <option value="category">Category</option>
@@ -67,24 +53,11 @@
                         <option value="ST">ST</option>
                         <option value="SC">SC</option>
                     </select>
-                    </select>
                 </label>
-                <label for="phone_number">
-                    Mobile Number:
-                    <input type="text" id="phone_number" placeholder="Mobile Number" name="mobileNumber">
-                </label>
-                <label for="adhaar_no">
-                    Aadhar Number:
-                    <input type="text" placeholder="Aadhar Number:" name="adharNumber">
-                </label>
-
-            <label for="emailaddress">
-                Email Address:  
-                <input type="text" class="emailaddress" placeholder="Enter a valid Email ID " name="email">
-            </label>
-            <div class="container">
-                <input type="submit" value="submit" id="btn-submit" >
-            </div>
+      
+                <div class="container">
+                    <button  id="btn-submit" >Find</button>
+                </div>
             </form>
 
         </div>

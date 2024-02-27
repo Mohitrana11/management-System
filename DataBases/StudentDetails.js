@@ -12,6 +12,10 @@ const StudentSchema = new mongo.Schema({
         type:String,
         required:true
     },
+    rollNumber:{
+        type:Number,
+        required:true
+    },
     fatherName:{
         type:String,
         required:true
