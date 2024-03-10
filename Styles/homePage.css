@@ -1,0 +1,650 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html,body{
+   
+    width: 100%;
+    height: 100%;
+    font-family: "Noto Sans", sans-serif;
+    /* background-color: azure; */
+}
+
+/*  Circle Button: -- ----------------------------------- */
+
+#circle{
+    position: absolute;
+    z-index: 999;
+    pointer-events: none;
+    width: 22px;
+    height: 22px;
+    background-color: rgba(8, 3, 3, 0.08);
+    border: 2px solid rgba(0, 0, 0, 0.334);
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+}
+/*  First Slide[Start]: ------------------------- */
+.firstSlide{
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    background-color: rgba(154, 242, 248, 0.346);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    animation:firstSlideCom 1s cubic-bezier(0.19, 1, 0.22, 1) 5s both;
+   
+}
+@keyframes  firstSlideCom {
+    to{
+    margin-top:-100% ;
+    }
+}
+.frontBox{
+    width: 45vw;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: translate(0 50%);
+}
+.frontBox .images{
+    width: 12vw;
+    height: 13vh;
+    margin: 10px 0px;
+    mix-blend-mode: darken;
+    background-image: url('/images/avodes/img1.jpg');
+    background-size: 100% 100%;
+    animation: firstSlideAnim 5s ease-in-out infinite;
+}
+@keyframes firstSlideAnim{
+    0%{
+        background-image: url('/images/avodes/img1.jpg');
+    }
+    10%{
+        background-image: url('/images/avodes/img2.jpg');
+    }
+    30%{
+        background-image: url('/images/avodes/img3.png');
+    }
+    50%{
+        background-image: url('/images/avodes/img4.png');
+    }
+    70%{
+        background-image: url('/images/avodes/img7.png');
+    }
+    90%{
+        background-image: url('/images/avodes/img6.png');
+    }
+    100%{
+        background-image: url('/images/avodes/img7.png');
+    }
+
+}
+
+.frontBox  h2{
+    font-size: 30px;
+    font-family: cursive;
+    font-weight: 200;
+    margin: 10px 0px;
+}
+
+/*  Wrapper Container - ---------------------------------------------  */
+.wrapper{
+    width: 100%;
+    height: 100%;
+}
+
+
+/*  header-Section :  -------------------------------------------------------- */
+
+.header{
+    position: fixed;
+    z-index: 5;
+    width: 91vw;
+    height: 137px;
+    background-color: rgba(0, 255, 119, 0.118);
+}
+
+.header-top{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.gps-section{
+    margin: 5px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.gps-section img{
+    width: 60px;
+    height: 65px;
+    mix-blend-mode: darken;
+}
+
+.wrapperChange{
+    width: 370px;
+    height: 22px;
+    overflow: hidden;
+}
+.wrapperChange .elem{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.wrapperChange .elem:nth-child(1){
+    animation: textLogoAnimation 4s ease-in-out 3s infinite;
+}
+
+.wrapperChange .elem:nth-child(2){
+    animation: textLogoAnimation 4s ease-in-out 3s infinite;
+}
+
+@keyframes textLogoAnimation {
+    to{
+        transform:translateY(-100%) ;
+    }
+}
+
+.gps-name{
+    font-size: 19px;
+    font-family: Montserrat Poppins ;
+    color: black;
+    font-weight: 300;
+}
+.gps-name2{
+    font-size: 15px;
+    font-family: cursive ;
+    color: black;
+    font-weight:600;
+}
+.gps-location{
+    display: flex;
+    align-content: center;
+}
+
+.loc-name{
+    margin-right: 10px;
+}
+.loc-name h5{
+    margin:5px 0px ;
+    font-size: 13px;
+    font-family: cursive;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+.loc-name h6{
+    margin:5px 0px ;
+    font-size: 13px;
+    font-family: cursive;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+.loc-icon{
+    margin-right: 15px;
+}
+.loc-icon i{
+    font-size: 45px;
+    font-weight: 100;
+}
+
+/*  navbar------------------------------------------------------------- */
+
+
+.navbar{
+    position: relative;
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+    padding-top:10px ;
+}
+.navbar .nav-items{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0px 40px;
+}
+.nav-items{
+    position: relative;
+}
+.nav-links a{
+
+    position: relative;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    color: black;
+}
+
+.nav-links a::before{
+    position: absolute;
+    content: "";
+    width: 0px  ;
+    height: 2px;
+    bottom: -2px;
+    background-color: aqua;
+    transition: .7s ease-in;
+}
+.nav-links  a:hover ,.nav-links i{
+    color: rgb(38, 154, 45);
+}
+.nav-links  i:hover{
+    color: rgba(42, 244, 190, 0.738);
+}
+.nav-links a:hover::before{
+    width: 100%;
+}
+
+
+.dropdown{
+    position: absolute;
+    z-index: 2;
+    display: none;
+    width: 19vw;
+    border-radius: 10px;
+    background-color: rgba(79, 106, 216, 0.3);
+}
+.dropdown .nav-items{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    margin: 10px 3px;
+}
+.dropdown .nav-items .nav-links{
+    margin: 4px 0px;
+}
+.student:hover .dropdown{
+    display: block;
+}
+.course:hover .dropdown{
+    display: block;
+}
+
+#menu {
+    position: absolute;
+    right: 12px;
+    top:7px;
+    font-size: 22px;
+    display: none;
+}
+
+#x-btn{
+    position: absolute;
+    right: 12px;
+    top:7px;
+    font-size: 22px;
+    display: none;
+}
+
+/*  Carousel Container: [Start]---------------------------------------------  */
+
+.carouselContainer{
+    /* width: 100%; */
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    transition:2s ease-in-out ;
+}
+.carousel{
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+.carousel img{
+    width: 100%;
+    height: 100%;
+}
+.carousel .carouselText {
+    position: absolute;
+    top: 41%;
+    left: 34vw;
+    text-align: center;
+}
+.carouselText h2{
+    font-size: 40px;
+    color: azure;
+    font-family: cursive;
+}
+.carouselText p{
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-top: 4px;
+    color: rgba(34, 215, 124, 0.965);
+}
+.cBtn{
+    position: absolute;
+    top: 45%;
+    transform: translate(0 -50%);
+    width: 36px;
+    cursor: pointer;
+    height: 34px;
+    border-radius: 50%;
+    opacity: .6;
+    font-size: 15px;
+    font-weight: 700;
+}
+.cBtn:hover{
+    background-color: rgba(0, 128, 0, 0.77);
+}
+.prev{
+    left: 20px;
+}
+.next{
+    right: 20px;
+}
+
+/*  Branch Container[Start]----------------------------------- */
+.branches{
+    margin: 50px 0px;
+    width: 100%;
+    overflow-x: hidden;
+}
+.branches h1{
+    font-size: 30px;
+    text-align: center;
+}
+.branchContainer{
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap:wrap;
+    padding: 20px 40px;
+}
+.aboutBranch{
+    width: 150px;
+    height: 165px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 30px;
+    box-shadow: 3px 2px 4px black;
+    background-color: #d996ffba;
+    transition: 0.5s ease-in-out;
+    margin: 20px 40px;
+}
+.aboutBranch:hover{
+    transform: scale(1.03);
+}
+.aboutBranch img{
+    width: 120px;
+    height: 110px;
+    border-radius: 20px;
+}
+.aboutBranch h5{
+    font-size: 18px;
+    font-family: cursive;
+    font-weight: 400;
+    margin: 6px 0px;
+
+}
+
+
+/*  About College[Start]:------------------------------------ */
+
+.aboutCollegeContainer{
+    width: 100%;
+    margin-top: 90px;
+    background-color: rgba(195, 255, 229, 0.649);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.collegeImage{
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+.collegeImage img{
+    width: 100%;
+    height: 300px;
+}
+.collegeImage h2{
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    font-size: 35px;
+    font-family:Poppins;
+    text-transform: capitalize;
+    word-spacing:30px ;
+    color: #2e1002de;
+}
+.aboutCollege{
+    width: 100%;
+    margin: 20px 0px;
+    padding: 0px 40px;
+    padding-bottom: 50px;
+}
+.aboutCollege h2{
+    font-size: 30px;
+    font-family: Poppins;
+    font-weight: 400;
+
+    text-align: center;
+    margin-bottom:20px ;
+}
+.aboutCollege p{
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 24px;
+    font-family: sans-serif;
+}
+.aboutCollege .about1h5{
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+    margin:10px 0px ;
+}
+.aboutCollege .about2h5{
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+    margin:5px 0px ;
+}
+.aboutCollege h6{
+    font-size: 15px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    font-family: Poppins;
+    margin-top: 10px;
+}
+
+
+/* [Rotate Images: ]---------------------------- */
+.rotatingImages{
+    margin-top: 60px;
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+}
+.rotaeTitle h2{
+    text-align: center;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.rotateImages{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    scroll-behavior: smooth;
+    overflow-y: visible;
+    animation: scrolling 30s linear infinite ;
+}
+@keyframes scrolling{
+    0%{ transform: translateX(0vw);}
+    100%{ transform: translateX(-100vw);}
+}
+.rotateImages img{
+    cursor: pointer;
+    mix-blend-mode:darken;
+    margin: 0px 60px;
+    border-radius: 20px ;
+}
+
+/* College Faculty [Start]------------------------------------ */
+.faculty{
+    width: 100%;
+    height: 30vh;
+    margin: 40px;
+}
+.faculty>h2{
+    text-align: center;
+    font-size: 25px;
+    font-family: cursive;
+    margin: 30px 0px;
+}
+.facultyCollege{
+    width: 50%;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0px 50px;
+}
+.fcContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fcContainer h2{
+    font-size: 18px;
+    font-weight: 800;
+    font-family: monospace;
+    text-transform: uppercase;
+    margin: 6px 0px;
+}
+.fcContainer h3{
+    font-size: 18px;
+    font-weight: 300;
+    color: green;
+}
+.fcContainer h3 span{
+    color: black;
+}
+
+/* Footer [Start]-------------------------------------------------- */
+/* Basic Reset */
+
+
+footer {
+    font-family: Arial, sans-serif;
+    border-top: 2px solid black;
+    border-radius: 5%;
+}
+
+.footer-top {
+    margin: 30px  0px;
+    padding: 20px 0;
+}
+
+.footer-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-info, .footer-links, .footer-contact {
+    padding: 15px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.links-list, .contact-info {
+    list-style: none;
+}
+
+.links-list li a, .contact-info li a, .contact-info li {
+    /* display: block; */
+    margin-bottom: 10px;
+    padding: 0px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+}
+
+
+.links-list li a:hover{
+    color: brown;
+}
+
+
+/*  Media Query :  */
+
+@media  (max-width:870px){
+    .gps-location{
+        display: none;
+    }
+    .header-top{
+        justify-content: center;
+    }
+    .cdtp,.about,.approval{
+        display: none;
+    }
+    .aboutBranch{
+        margin: 10px 20px;
+    }
+    .faculty{
+        margin: 10px;
+    }
+    .facultyCollege{
+        width: 70vw;
+    }
+    .carouselContainer{
+        height: 70vh;
+    }
+    .carousel{
+        width: 100%;
+        height: 70vh;
+    }
+
+}
+@media (max-width:730px){
+    .navbar{
+        display: none;
+    }
+    #menu{
+        display:block ;
+    }
+
+}

@@ -1,0 +1,17 @@
+
+
+.section-space{
+    padding: 0px 4%;
+}
+.mt0{
+    margin-top:0px;
+}
+.align-item{
+    align-items: center;
+}
+.display{
+    display: flex;
+}
+.justify-containt{
+    justify-content: center;
+}

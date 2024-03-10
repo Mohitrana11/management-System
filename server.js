@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended:false}));
 // Folders: 
 app.use('/Styles',express.static('Styles'));
 app.use('/images',express.static('images'));
-
+app.use('/scripts',express.static('scripts'));
 
 // View Engine SetUp: 
 app.set('view engine','hbs');
@@ -29,7 +29,8 @@ app.set('view engine','hbs');
 //  CODE: 
 
 app.get('/',(req,resp)=>{
-    resp.send('<h1>HOme page!</h1>');
+    // resp.send('<h1>HOme page!</h1>');
+    resp.render('home');
 })
 
 
@@ -122,7 +123,7 @@ app.get('/ProfileSearch',(req,reps)=>{
 
 app.post('/Profiles',async (req,resp)=>{
     // const items = await studentDB.find({branch:req.body.branch},{year:req.body.year},{$or:[{gender:req.body.gender},{category:req.body.category}]});
-    const items = await studentDB.find({$and:[ {branch:req.body.branch},{year:req.body.year}]});
+    const items = await studentDB.find({$and:[ {branch:req.body.branch},{year:req.body.year},{gender:req.body.gender},{category:req.body.category}]});
     // {$or:[{gender:req.body.gender},{category:req.body.category}]
     
     resp.render('showStudentDetails', { items });
