@@ -107,9 +107,8 @@ app.post('/StudentDetails', async (req,resp)=>{
         category:req.body.category,
     }
     await studentDB.insertMany([data]);
-    resp.send('<h1>print All Data!</h1>');
+    resp.render('home');
 });
-
 
 app.get('/showStudentDetails', async (req, resp) => {
     const items = await studentDB.find({});
@@ -119,19 +118,22 @@ app.get('/showStudentDetails', async (req, resp) => {
 app.get('/ProfileSearch',(req,reps)=>{
     reps.render('ProfileSearch');
 });
+app.get('/ProfileSearchGn',(req,reps)=>{
+    reps.render('ProfileSearchGn');
+});
 
 
 app.post('/Profiles',async (req,resp)=>{
     // const items = await studentDB.find({branch:req.body.branch},{year:req.body.year},{$or:[{gender:req.body.gender},{category:req.body.category}]});
-    const items = await studentDB.find({$and:[ {branch:req.body.branch},{year:req.body.year},{gender:req.body.gender},{category:req.body.category}]});
-    // {$or:[{gender:req.body.gender},{category:req.body.category}]
-    
+    const items = await studentDB.find({$and:[ {branch:req.body.branch},{year:req.body.year}]});
     resp.render('showStudentDetails', { items });
 })
 
-// studentDB.find({branch:req.body.branch},{year:req.body.year},{$or:[{gender:req.body.gender},{category:req.body.category}]});
-
-// studentDB.find({branch:req.body.branch},{year:req.body.year},{$or:[{gender:req.body.gender},{category:req.body.category}]});
+app.post('/ProfilesGn',async (req,resp)=>{
+    // const items = await studentDB.find({branch:req.body.branch},{year:req.body.year},{$or:[{gender:req.body.gender},{category:req.body.category}]});
+    const items = await studentDB.find({$and:[ {branch:req.body.branch},{year:req.body.year},{gender:req.body.gender},{category:req.body.category}]});
+    resp.render('showStudentDetails', { items });
+})
 
 
 app.use('/',(req,resp)=>{

@@ -23,8 +23,9 @@ body{
 }
 .main {
     float: right;
-    width: 35vw;
-    margin: 30px auto;
+    width: 33vw;
+
+    margin: 50px auto;
     padding: 20px;
     border: 1px solid #ddd;
     box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.1);
@@ -121,6 +122,13 @@ button {
     background-color: #5ddeb5;
 }
 
+.register a{
+    text-align: center;
+    font-family: 16px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+}
 #btn-submit:hover{
     background-color: rgb(35, 8, 243);
     color: brown;
