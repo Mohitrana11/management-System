@@ -8,13 +8,15 @@ const path=require('path');
 // Data Base!--------------------------------------------------
 const signDB =require('./DataBases/LoginDB');  // Login and SignUp DataBase!
 const studentDB = require('./DataBases/StudentDetails');
+const cousellingDB = require('./DataBases/CounsellingDB');
 const { TopologyDescription } = require('mongodb');
 
 
-const app = express();
 
+const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+
 
 
 
@@ -22,17 +24,18 @@ app.use(express.urlencoded({extended:false}));
 app.use('/Styles',express.static('Styles'));
 app.use('/images',express.static('images'));
 app.use('/scripts',express.static('scripts'));
+app.use('/fontFamilys',express.static('fontFamilys'));
 
-// View Engine SetUp: 
+
+// View Engine SetUp:
 app.set('view engine','hbs');
 
-//  CODE: 
+//  CODE:
 
 app.get('/',(req,resp)=>{
-    // resp.send('<h1>HOme page!</h1>');
-    resp.render('home');
+    // resp.send('<h1>home1 page!</h1>');
+    resp.render('home1');
 })
-
 
 app.get('/StudentDetail',(req,resp)=>{
     resp.render('StudentDetail');
@@ -56,14 +59,13 @@ app.post('/SingData',async (req,resp)=>{
     const userName = await signDB.find({name:req.body.name});
     if(userName==req.body.name){
         resp.send('<h1>This User name is already  exist!  </h1>')
-
     }else{
         const saltRounds = 10;
         const hashPassword = await bcrypt.hash(data.password,saltRounds);
         data.password = hashPassword;
         await signDB.insertMany([data]);
     }
-    resp.render('home');
+    resp.render('home1');
 })
 
 
@@ -77,7 +79,7 @@ app.post('/login',async (req,resp)=>{
         }
         const isPassword = await bcrypt.compare(req.body.password,check.password);
         if(isPassword){
-            resp.render('home');
+            resp.render('home1');
         }else{
             resp.send('wrong Password!');
         }
@@ -107,7 +109,7 @@ app.post('/StudentDetails', async (req,resp)=>{
         category:req.body.category,
     }
     await studentDB.insertMany([data]);
-    resp.render('home');
+    resp.render('home1');
 });
 
 app.get('/showStudentDetails', async (req, resp) => {
@@ -134,6 +136,47 @@ app.post('/ProfilesGn',async (req,resp)=>{
     const items = await studentDB.find({$and:[ {branch:req.body.branch},{year:req.body.year},{gender:req.body.gender},{category:req.body.category}]});
     resp.render('showStudentDetails', { items });
 })
+
+
+// Show Counselling :
+
+app.get('/showCounselling', async (req, resp) => {
+    const items = await cousellingDB.find({});
+    resp.render('showCounselling', { items });
+});
+
+
+//  Counselling Form:
+app.get('/counsellingForm',(req,resp)=>{
+    resp.render('counsellingForm');
+})
+
+
+app.post('/Counselling',async (req,resp)=>{
+    const data = {
+        jeep:req.body.jeep,
+        studentName:req.body.studentName,
+        fatherName:req.body.fatherName,
+        motherName:req.body.motherName,
+        dob:req.body.dob,
+        mobileNumber:req.body.mobileNumber,
+        email:req.body.email,
+        firstChoice:req.body.firstChoice,
+        secondChoice:req.body.  secondChoice,
+        thirdChoice:req.body.thirdChoice,
+        fourthChoice:req.body. fourthChoice,
+        year:req.body.year,
+        gender:req.body.gender,
+        category:req.body.category,
+        state:req.body.state,
+        district:req.body.district,
+        pincode:req.body.pincode,
+    }
+    await cousellingDB.insertMany([data]);
+    // resp.render('home1');
+    resp.send('You Data is Submitted!');
+})
+
 
 
 app.use('/',(req,resp)=>{

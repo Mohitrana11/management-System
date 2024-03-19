@@ -9,35 +9,45 @@
     <table>
         <thead>
             <tr>
-                <th>Roll NO.</th>
+                <th>jeep Rank.</th>
                 <th>Student Name</th>
                 <th>Father Name</th>
                 <th>Mother Name</th>
                 <th>DOB</th>
-                <th>Branch</th>
-                <th>Year</th>
+                <th>Year</th> 
+                <th>1st choice</th>
+                <th>2nd choice</th>
+                <th>3rd choice</th>
+                <th>4th choice</th>
                 <th>Gender</th>
                 <th>Category</th>
                 <th>Mobile No.</th>
-                <th>Aadhar Number</th>
                 <th>Email</th>
+                <th>State</th>
+                <th>District</th>
+                <th>Pin Code</th>
             </tr>
         </thead>
         <tbody>
             {{#each items}}
             <tr>
-                <td class="rollNumber">{{this.rollNumber}}</td>
+                <td class="jeepRank">{{this.jeep}}</td>
                 <td class="name">{{this.studentName}}</td>
                 <td>{{this.fatherName}}</td>
                 <td>{{this.motherName}}</td>
                 <td>{{this.dob}}</td>
-                <td class="branch">{{this.branch}}</td>
-                <td class="year">{{this.year}}</td>
-                <td class="gender">{{this.gender}}</td>
-                <td class="category">{{this.category}}</td>
+                <td>{{this.year}}</td>
+                <td class="firstChoice">{{this.firstChoice}}</td>
+                <td class="secondChoice">{{this.secondChoice}}</td>
+                <td>{{this.thirdChoice}}</td>
+                <td>{{this.fourthChoice}}</td>
+                <td>{{this.gender}}</td>
+                <td>{{this.category}}</td>
                 <td>{{this.mobileNumber}}</td>
-                <td>{{this.adharNumber}}</td>
-                <td class="email">{{this.email}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.state}}</td>
+                <td>{{this.district}}</td>
+                <td>{{this.pincode}}</td>
             </tr>
             {{/each}}
         </tbody>
