@@ -8,7 +8,7 @@ const path=require('path');
 // Data Base!--------------------------------------------------
 const signDB =require('./DataBases/LoginDB');  // Login and SignUp DataBase!
 const studentDB = require('./DataBases/StudentDetails');
-const cousellingDB = require('./DataBases/CounsellingDB');
+const counsellingDB = require('./DataBases/CounsellingDB');
 const { TopologyDescription } = require('mongodb');
 
 
@@ -35,6 +35,9 @@ app.set('view engine','hbs');
 app.get('/',(req,resp)=>{
     // resp.send('<h1>home1 page!</h1>');
     resp.render('home1');
+})
+app.get('/TeacherPage',(req,reps)=>{
+    resp.render('teachersHomePage');
 })
 
 app.get('/StudentDetail',(req,resp)=>{
@@ -65,7 +68,7 @@ app.post('/SingData',async (req,resp)=>{
         data.password = hashPassword;
         await signDB.insertMany([data]);
     }
-    resp.render('home1');
+    resp.render('teachersHomePage');
 })
 
 
@@ -79,7 +82,7 @@ app.post('/login',async (req,resp)=>{
         }
         const isPassword = await bcrypt.compare(req.body.password,check.password);
         if(isPassword){
-            resp.render('home1');
+            resp.render('teachersHomePage');
         }else{
             resp.send('wrong Password!');
         }
@@ -134,6 +137,7 @@ app.post('/Profiles',async (req,resp)=>{
 app.post('/ProfilesGn',async (req,resp)=>{
     // const items = await studentDB.find({branch:req.body.branch},{year:req.body.year},{$or:[{gender:req.body.gender},{category:req.body.category}]});
     const items = await studentDB.find({$and:[ {branch:req.body.branch},{year:req.body.year},{gender:req.body.gender},{category:req.body.category}]});
+    // const items = await studentDB.findMany({branch:req.body.branch,year:req.body.year,gender:req.body.gender,category:req.body.category});
     resp.render('showStudentDetails', { items });
 })
 
@@ -141,7 +145,7 @@ app.post('/ProfilesGn',async (req,resp)=>{
 // Show Counselling :
 
 app.get('/showCounselling', async (req, resp) => {
-    const items = await cousellingDB.find({});
+    const items = await counsellingDB.find({});
     resp.render('showCounselling', { items });
 });
 
@@ -172,7 +176,7 @@ app.post('/Counselling',async (req,resp)=>{
         district:req.body.district,
         pincode:req.body.pincode,
     }
-    await cousellingDB.insertMany([data]);
+    await counsellingDB.insertMany([data]);
     // resp.render('home1');
     resp.send('You Data is Submitted!');
 })
